@@ -1,0 +1,146 @@
+{
+  "dxt_version": "0.1",
+  "name": "Salesforce connector Extension",
+  "display_name": "Salesforce Connector",
+  "version": "0.0.3",
+  "description": "A Salesforce connector MCP Server.",
+  "author": {
+    "name": "KiranKnoppert",
+    "url": "https://www.welisa.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/mcp-server-salesforce"
+  },
+  "homepage": "https://www.welisa.com/",
+  "support": "https://www.welisa.com/support",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
+      "env": {
+        "SALESFORCE_CONNECTION_TYPE": "${user_config.connection_type}",
+        "SALESFORCE_USERNAME": "${user_config.salesforce_username}",
+        "SALESFORCE_PASSWORD": "${user_config.salesforce_password}",
+        "SALESFORCE_TOKEN": "${user_config.salesforce_token}",
+        "SALESFORCE_CLIENT_ID": "${user_config.salesforce_client_id}",
+        "SALESFORCE_CLIENT_SECRET": "${user_config.salesforce_client_secret}",
+        "SALESFORCE_INSTANCE_URL": "${user_config.salesforce_instance_url}"
+      }
+    }
+  },
+  "user_config": {
+    "connection_type": {
+      "type": "string",
+      "title": "Connection Type",
+      "description": "Choose the Salesforce authentication method.",
+      "required": true,
+      "default": "User_Password",
+      "enum": [
+        "User_Password",
+        "OAuth_2.0_Client_Credentials"
+      ]
+    },
+    "salesforce_username": {
+      "type": "string",
+      "title": "Salesforce Username",
+      "description": "Required for User/Password flow."
+    },
+    "salesforce_password": {
+      "type": "string",
+      "title": "Salesforce Password",
+      "description": "Required for User/Password flow.",
+      "sensitive": true
+    },
+    "salesforce_token": {
+      "type": "string",
+      "title": "Salesforce Security Token",
+      "description": "Optional for User/Password flow.",
+      "sensitive": true
+    },
+    "salesforce_client_id": {
+      "type": "string",
+      "title": "Salesforce Client ID",
+      "description": "Required for OAuth 2.0 flow."
+    },
+    "salesforce_client_secret": {
+      "type": "string",
+      "title": "Salesforce Client Secret",
+      "description": "Required for OAuth 2.0 flow.",
+      "sensitive": true
+    },
+    "salesforce_instance_url": {
+      "type": "string",
+      "title": "Salesforce Instance URL",
+      "description": "Defaults to login.salesforce.com. Required for OAuth.",
+      "default": "https://login.salesforce.com"
+    }
+  },
+  "tools": [
+    {
+      "name": "salesforce_search_objects",
+      "description": "Search for Salesforce standard and custom objects by name pattern."
+    },
+    {
+      "name": "salesforce_describe_object",
+      "description": "Get detailed schema metadata for any Salesforce object."
+    },
+    {
+      "name": "salesforce_query_records",
+      "description": "Query records from any Salesforce object using SOQL."
+    },
+    {
+      "name": "salesforce_aggregate_query",
+      "description": "Execute SOQL queries with GROUP BY and aggregate functions."
+    },
+    {
+      "name": "salesforce_dml_records",
+      "description": "Perform insert, update, delete, and upsert operations on records."
+    },
+    {
+      "name": "salesforce_manage_object",
+      "description": "Create new custom objects or modify existing ones."
+    },
+    {
+      "name": "salesforce_manage_field",
+      "description": "Create new custom fields or modify existing fields."
+    },
+    {
+      "name": "salesforce_manage_field_permissions",
+      "description": "Manage Field Level Security for fields."
+    },
+    {
+      "name": "salesforce_search_all",
+      "description": "Search across multiple Salesforce objects using SOSL."
+    },
+    {
+      "name": "salesforce_read_apex",
+      "description": "Read Apex classes from Salesforce."
+    },
+    {
+      "name": "salesforce_write_apex",
+      "description": "Create or update Apex classes in Salesforce."
+    },
+    {
+      "name": "salesforce_read_apex_trigger",
+      "description": "Read Apex triggers from Salesforce."
+    },
+    {
+      "name": "salesforce_write_apex_trigger",
+      "description": "Create or update Apex triggers in Salesforce."
+    },
+    {
+      "name": "salesforce_execute_anonymous",
+      "description": "Execute anonymous Apex code in Salesforce."
+    },
+    {
+      "name": "salesforce_manage_debug_logs",
+      "description": "Manage debug logs for Salesforce users."
+    }
+  ],
+  "license": "MIT"
+}
