@@ -37,13 +37,9 @@
     "connection_type": {
       "type": "string",
       "title": "Connection Type",
-      "description": "Choose the Salesforce authentication method.",
+      "description": "Authentication method. Must be exactly 'User_Password' or 'OAuth_2.0_Client_Credentials'.",
       "required": true,
-      "default": "User_Password",
-      "enum": [
-        "User_Password",
-        "OAuth_2.0_Client_Credentials"
-      ]
+      "default": "User_Password"
     },
     "salesforce_username": {
       "type": "string",
